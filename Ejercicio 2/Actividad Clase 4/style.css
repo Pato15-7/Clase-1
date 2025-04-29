@@ -9,6 +9,12 @@ body {
     flex-direction: column;
   }
 
+
+h1 {
+    border: 2px solid black;
+    padding: 10px;
+  }
+
     #contenedor {
     width: 100%;
     }
