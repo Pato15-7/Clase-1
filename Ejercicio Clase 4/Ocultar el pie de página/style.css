@@ -1,0 +1,22 @@
+#contenedor {
+    width: 700px;
+    }
+    #cabecera {
+        background-color: #d68110;
+    }
+    #menu {
+    float: right;
+    width: 150px;
+    background-color: #8a2781;
+    }
+    #contenido {
+    float: right;
+    width: 550px;
+    background-color: #811ae0;
+    }
+    #pie {
+    clear: both;
+    background-color: #43577c;
+    display: none;
+    }
+
