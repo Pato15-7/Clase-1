@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <h1>Gestión de Usuarios</h1>
+
+    <form id="formUsuario">
+        <input type="hidden" id="id">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <table id="tablaUsuarios">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const apiUrl = "https://localhost:7260/api/usuarios";
+
+        function cargarUsuarios() {
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.querySelector("#tablaUsuarios tbody");
+                    tbody.innerHTML = "";
+                    data.forEach(usuario => {
+                        const fila = `
+                            <tr>
+                                <td>${usuario.id}</td>
+                                <td>${usuario.nombre}</td>
+                                <td>${usuario.email}</td>
+                                <td>
+                                    <button onclick="editarUsuario(${usuario.id}, '${usuario.nombre}', '${usuario.email}')">Editar</button>
+                                    <button onclick="eliminarUsuario(${usuario.id})">Eliminar</button>
+                                </td>
+                            </tr>`;
+                        tbody.innerHTML += fila;
+                    });
+                })
+                .catch(err => {
+                    console.error("Error al cargar usuarios", err);
+                    alert("No se pudo cargar la lista de usuarios.");
+                });
+        }
+
+        function editarUsuario(id, nombre, email) {
+            document.getElementById("id").value = id;
+            document.getElementById("nombre").value = nombre;
+            document.getElementById("email").value = email;
+        }
+
+        function eliminarUsuario(id) {
+            if (!confirm("¿Estás seguro de eliminar este usuario?")) return;
+
+            fetch(`${apiUrl}/${id}`, { method: "DELETE" })
+                .then(res => {
+                    if (!res.ok) throw new Error("Error al eliminar");
+                    cargarUsuarios();
+                })
+                .catch(err => {
+                    console.error("Error al eliminar", err);
+                    alert("No se pudo eliminar el usuario.");
+                });
+        }
+
+        document.getElementById("formUsuario").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const id = document.getElementById("id").value;
+            const nombre = document.getElementById("nombre").value;
+            const email = document.getElementById("email").value;
+
+            const usuario = { nombre, email };
+
+            if (id) {
+                // Modificar
+                fetch(`${apiUrl}/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id: parseInt(id), ...usuario })
+                })
+                .then(res => {
+                    if (!res.ok) throw new Error("Error al modificar");
+                    return res.json();
+                })
+                .then(() => {
+                    this.reset();
+                    cargarUsuarios();
+                })
+                .catch(err => {
+                    console.error("Error al modificar", err);
+                    alert("No se pudo modificar el usuario.");
+                });
+            } else {
+                // Crear
+                fetch(apiUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(usuario)
+                })
+                .then(res => {
+                    if (!res.ok) throw new Error("Error al crear");
+                    return res.json();
+                })
+                .then(() => {
+                    this.reset();
+                    cargarUsuarios();
+                })
+                .catch(err => {
+                    console.error("Error al crear", err);
+                    alert("No se pudo agregar el usuario.");
+                });
+            }
+        });
+
+        cargarUsuarios();
+    </script>
+
+</body>
+</html>
