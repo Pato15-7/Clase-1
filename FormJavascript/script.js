@@ -90,4 +90,4 @@ nombreCompleto.focus();
 
 nombreCompleto.addEventListener('input', function () {
     titulo.innerHTML = `<p>HOLA ${nombreCompleto.value.toUpperCase()}</p>`;
-});
+});// comentario
