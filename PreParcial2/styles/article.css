@@ -1,0 +1,42 @@
+.articulo{
+    float: right;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+}
+
+.imagen-principal{
+    padding-top: 2em;
+    padding-bottom: 1em;
+    width: 80%;
+    max-width: 400px;
+    max-height: 70%;
+    height: auto;
+}
+
+.info-articulo{
+    text-align: start;
+    padding-left: 2em;
+    height: 20%;
+}
+
+.titulo-articulo{
+    margin-top: 0%;
+    font-size: 3em;
+}
+
+.texto-articulo{
+    padding-top: 0%;
+    margin-bottom: 0%;
+    font-size: 2vh;
+}
+
+.btn-articulo{
+    color: black;
+    background-color: rgb(160, 160, 44);
+    float: right;
+    margin-right: 5em;
+    border-color: transparent;
+    text-decoration: none;
+    height: 10%;
+}

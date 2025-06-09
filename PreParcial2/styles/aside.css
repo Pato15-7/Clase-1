@@ -1,0 +1,14 @@
+.aside{
+    color: white;
+    height: auto;
+}
+
+.titulo-aside{
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 5em;
+}
+
+ul{
+    padding-left: 5em;
+}

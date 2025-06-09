@@ -1,0 +1,17 @@
+#cabeceraDetalle{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 3vh 3vh 3vh 3vh;
+}
+
+#Titulo{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11vh;
+}
+
+#Subtitulo{
+    text-align: center;
+    padding-bottom: 4vh;
+}
