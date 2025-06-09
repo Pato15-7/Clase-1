@@ -1,0 +1,170 @@
+html,body{
+    margin:0%;
+    padding: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.encabezado{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(25, 40, 179);
+    height: 5%;
+    padding: 1.5em;
+    color: yellow;
+}
+
+.header{
+    text-align: center;
+}   
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3em;
+    margin-bottom: 2vh;
+    color: blue;
+}
+h2{
+    margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color: cadetblue;
+}
+
+.contenedor-img{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+img{
+    width: 100%;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 40%;
+    margin: 1em auto;
+    text-align: center;
+}
+
+.secciones{
+    width: 50%;
+    display: flex;
+    margin: 2em auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.seccion{
+    width: 20%;
+    padding: 2em;
+    text-align: center;
+    border: 2px solid black;
+}
+.titulo{
+    color: cadetblue;
+    padding-left: 1vh;
+}
+
+.tituloseccion{
+    padding-left: 10vh;
+}
+
+.parte2{
+    width: 90%;
+    height: auto;
+    display: flex;
+    margin: 2em auto;
+    background-color: blue;
+}
+
+.contenedor-img2{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-2{
+    height: 55%;
+    width: auto;
+    display: block;
+}
+
+.info-2{
+    padding: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 60%;
+    color: yellow;
+}
+
+.form{
+    width: 70%;
+    margin: 0 auto;
+    gap: 1em;
+}
+
+.form .row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.contenedor-form{
+    background-color: blue;
+    width: 50%;
+    margin: 2em auto;
+    padding: 2em;
+    color: yellow;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+input {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(25, 40, 179);
+    height: 5em;
+    color: yellow;
+}
+
+@media screen and (max-width: 1800px) {
+  .parte2 {
+    flex-direction: column; /* Cambia de fila a columna */
+    align-items: center;    /* Centra los elementos en columna */
+  }
+
+  .contenedor-img2,
+  .info-2 {
+    width: 100%;       /* Ambos ocupan todo el ancho */
+    text-align: center;
+    padding: 1em;
+  }
+
+  .imagen-2 {
+    width: 100%;
+    height: auto;
+  }
+}
